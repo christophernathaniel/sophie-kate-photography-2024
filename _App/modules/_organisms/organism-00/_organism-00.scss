@@ -1,0 +1,49 @@
+$padding: 40px;
+$margin: 20px;
+
+.organism-00 {
+    position: relative;
+    margin: $margin;
+    padding: $padding;
+    background: var(--colour-gray-3);
+    border-radius: 20px;
+
+    &.loader-content {
+        &:has(.loader) {
+            > *:not(.loader) {
+                opacity: 0;
+                animation: loadingIn 2s normal forwards ease-in-out;
+            }
+        }
+    }
+
+
+    .loader {
+        z-index: 0;
+        position: absolute;
+        top: $padding;
+        left: $padding;
+        bottom: $padding;
+        right: $padding;
+        overflow: hidden;
+    
+        div {
+            background: linear-gradient(90deg, rgba(220,219,230,1) 0%, rgba(230,232,238,1) 14%, rgba(234,238,240,1) 100%);
+            background: var(--colour-gray-8);
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    
+    .loader {
+        animation: loadingOut 2s normal forwards ease-in-out;
+        opacity: 1;
+    
+        div {
+            animation: loadingOutDiv 2s normal forwards ease-in-out;
+        }
+    }
+}
+
+

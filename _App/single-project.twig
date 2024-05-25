@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="article-wrapper content-wrapper content site-width">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			
+			<section class="article-content">
+				<h1 class="article-h1">{{ post.title }}</h1>
+				{# <a href="{{ post.link }}">{{ _e('edit') }}</a> #}
+				
+				<div class="hashcontainer">
+                	<ul class="no-style hashgrid">
+						{% for item in post.categories %}
+							<li><a class="hash" href="{{ item.href }}">{{ include('modules/_atoms/hashicon.twig') }} {{ item.name }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+		
+
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+
+			<!-- comment box -->
+			
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

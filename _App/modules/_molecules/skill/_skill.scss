@@ -1,0 +1,65 @@
+.skill-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media (min-width: 567px) and (max-width: 899px) {
+        grid-template-columns: 1fr;
+    }
+
+   
+
+    @include _('margin-bottom', 0.7, 20);
+
+    .--left {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 567px) {
+            @include _('width', 0.7, 200);
+        }
+
+        
+
+        strong, span {
+            line-height: 1.1em;
+        }
+    }
+
+    .--right {
+        @include _('padding-top', 0.7, 6);
+
+        @media (min-width: 567px) and (max-width: 899px) {
+            @include _('padding-top', 0.7, 20);
+            @include _('padding-bottom', 0.7, 20);
+        }
+
+        @media (max-width: 566px) {
+            justify-self: end;
+        }
+    }  
+
+
+    .--progress {
+        display: flex;
+        align-items: center;
+        @include _('gap', 0.7, 8);
+        flex: 0 0 auto;
+        
+
+        li {
+            height: 8px;
+            width: 8px;
+            border-radius: 4.5px;
+            background-color: var(--color-primary);
+
+        }
+
+        @for $i from 1 through 6 {
+            &[data-progress="#{$i}"] {
+                li:nth-child(1n+#{$i + 1}) {
+                    background-color: var(--color-secondary);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="header-block-01">
+    <div class="container">
+        <div class="row">
+            <div class="col col-4 col-md-6 col-lg-6">
+                <div class="--left">
+                    <span class="--subtitle fs--15 tt--uppercase"><strong>{{ fields.subtitle }}</strong></span>
+                    <h1 class="--title fs--96 --h1 tt--uppercase">{{ fields.title }}</h1>
+                    <p class="--text">{{ fields.text }}</p>
+                    {% include 'modules/_atoms/button/button.twig' with  { title : fields.link.title, url : fields.link.url, target: fields.link.target } %}
+                    <a class="--page-down" href="#content" aria-label="page-down">
+                        {% include '/modules/_atoms/arrowicon/arrowicon.twig' %}
+                    </a>
+                </div>
+            </div>
+            <div class="col col-8 col-md-6 col-lg-6">
+                <div class="--right">
+                    <div class="--grid">
+                        {% for link in fields.links %}
+                            <a class="--link" href="{{ link.link.url }}" target="{{ link.link.target }}">
+                                <div class="--image">
+                                    <img src="{{ link.image.url }}" alt="{{ link.image.alt }}">
+                                    <span class="--number fs--96 --h1">0{{ loop.index }}</span>
+                                </div>
+                                <div class="--group">
+                                    <span class="--number fs--96 --h1">0{{ loop.index }}</span>
+                                    <div class="--subtitle tt--uppercase fs--14"><strong>{{ link.subtitle }}</strong></div>
+                                    <h2 class="--title tt--uppercase --h2 fs--36">{{ link.title }}</h2>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

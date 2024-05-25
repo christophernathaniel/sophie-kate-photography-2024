@@ -1,0 +1,16 @@
+$columns: 12;
+$gutter: 40px;
+$container: 1680px !default;
+
+
+:root {
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+  --xxl: 1600px;
+  --xxxl: 1920px;
+}
+
+@import 'lib/grid';
+@import 'lib/gridlines';

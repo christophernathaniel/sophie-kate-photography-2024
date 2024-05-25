@@ -1,0 +1,44 @@
+.image-tile {
+    // Block Positioning
+
+    &:before {
+        content: " ";
+        position: absolute;
+        left: 10%;
+        border-radius: 100%;
+        bottom: -25%;
+        transform: translateX(-50%) translateY(-50%);
+        @include _('width', 0.5, 70);
+        aspect-ratio: 1/1;
+        background: var(--color-4);
+        border: 7px solid var(--color-secondary);
+        z-index: 3;
+    }
+    
+    // Image Specifics
+    .inner {
+        @include _('width', 0.5, 182);
+        overflow: hidden;
+        display: block;
+
+        aspect-ratio: 1/1;
+        @include _('border-radius', 0.5, 64);
+        display: flex;
+
+        transform: scale(1);
+
+       img {
+        width: 100%;
+        object-fit: cover;
+       }
+
+    }
+
+    // Info Tile Positioning
+    .info-tile {
+
+    }
+ 
+}
+
+

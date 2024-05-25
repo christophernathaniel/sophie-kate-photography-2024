@@ -1,0 +1,10 @@
+<div class="organism-00">
+    <div class="function">
+        {% for post in posts %}
+            <a href="{{ post.link }}">{{ post.title }}</a>
+            <a html class="is-counter" @ref="11_{{loop.index}}" @update="44" @trigger="click" callback="testCallback" postCallback="testCallback" defaultCallback="defaultCallback">{{'{{ switchName }}'}}</a>
+        {% endfor %}
+    </div>
+</div>
+
+

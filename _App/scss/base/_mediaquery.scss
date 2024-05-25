@@ -1,0 +1,99 @@
+// Example: @include dynamic-value(14px, 20px, height, 20px);
+@mixin dynamic-value($min-value, $max-value, $property, $value, $unit: px) {
+    // Convert pixel values to em units if needed
+   
+      $min-value-converted: $min-value / 16; // Assuming base font size of 16px
+      $max-value-converted: $max-value / 16;
+      $value-converted: $value / 16;
+   
+    // Calculate the minimum and maximum value
+    $min-value-calc: #{clamp(#{$min-value-converted}em, calc(#{$min-value-converted}em + 1vw), #{$max-value-converted}em)};
+  
+    // Apply the property using CSS variables
+    #{$property}: #{$value-converted}em;
+  
+    // Define CSS variables for the min and max value
+    --min-value: #{$min-value-calc};
+    --max-value: #{$max-value-converted}em;
+  
+    // Apply the clamp function to the property
+    #{$property}: #{clamp(var(--min-value), #{$value-converted}em, var(--max-value))};
+  }
+
+
+
+  :root {
+    --col-1: 8.333rem; /* 133px */
+    --col-2: 16.666rem; /* 266px */
+    --col-3: 25rem; /* 400px */
+    --col-4: 33.333rem;  /* 533.32 */
+    --col-5: 41.665rem; /* 666.656 */
+    --col-6: 50rem; /* 800px */
+    --col-7: 58.333rem; /* 933.328 */
+    --col-8: 66.666rem; /* 1066.656 */
+    --col-9: 75rem; /* 1200px */
+    --col-10: 83.333rem; /* 1333.328px */
+    --col-11: 91.665rem; /* 1466.64px */
+    --col-12: 100rem; /* 1600px */
+   
+    --tile-86: 5.375rem; /* 86px */
+    --tile-5: 0.312rem;
+    --tile-10: 0.625rem;
+    --tile-15: 0.937rem;
+    --tile-20: 1.25rem;
+    --tile-30: 1.875rem;
+    --tile-40: 2.5rem;
+    --tile-50: 3.125rem;
+    --tile-60: 3.75rem;
+    --tile-70: 4.375rem;
+    --tile-80: 5rem;
+    --tile-90: 5.625rem;
+    --tile-100: 6.25rem;
+    --tile-120: 7.5rem;
+    --tile-140: 8.75rem;
+    --tile-160: 10rem;
+    --tile-180: 11.25rem; /* 180px */
+    --tile-200: 12.5rem; /* 200px */
+
+}
+
+
+
+.site-width-wide {
+    @include dynamic-value(1200, 1900, width, 1900);
+    max-width: 100%;
+    margin: 0 auto;
+    @include _('padding-left', 0.5, 20);
+    @include _('padding-right', 0.5, 20);
+  }
+
+  
+
+
+  .site-width {
+    @include dynamic-value(1200, 1600, width, 1600);
+    max-width: 100%;
+    margin: 0 auto;
+    @include _('padding-left', 0.5, 40);
+    @include _('padding-right', 0.5, 40);
+  }
+
+  
+  .title-width {
+    // @include dynamic-value(380, 1000, width, 820);
+    width: clamp(var(--col-3), 70cqw, var(--col-6));
+    max-width: 100%;
+  }
+
+  .content-width {
+    // @include dynamic-value(380, 1000, width, 820);
+    width: clamp(var(--col-3), 70cqw, var(--col-6));
+    max-width: 100%;
+    margin: 0 auto;;
+  }
+
+  .content-width-slim {
+    // @include dynamic-value(380, 1000, width, 820);
+    width: clamp(var(--col-3), 60cqw, var(--col-5));
+    max-width: 100%;
+  }

@@ -1,0 +1,82 @@
+/* Container Unit Responsive Fonts */
+
+
+.f--light {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.f--regular {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.f--semibold {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.f--bold {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.tt--uppercase {
+    text-transform: uppercase;
+}
+
+:where(strong) {
+    font-weight: 400;
+}
+
+
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7em;
+}
+
+.--subtitle {
+    letter-spacing: 0.7em;
+}
+
+.--h1, .--h2, .--h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.--h1 {
+    line-height: 1.4em;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.--h2 {
+    line-height: 1.1em;
+    margin: 0;
+    letter-spacing: -0.04em;
+}
+
+.--h3 {
+    line-height: 1.1em;
+    margin: 0;
+    letter-spacing: -0.04em;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-secondary);
+    }
+}
+
+

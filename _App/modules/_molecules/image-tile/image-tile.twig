@@ -1,0 +1,8 @@
+ <div class="image-tile {{ mclass }}">
+    <div class="inner">
+        <img src="{{ Image(image).src }}" alt="{{ Image(image).alt }}">
+    </div>
+    {% if title %}
+        {% include 'modules/_atoms/info-tile/info-tile.twig' with { aclass : 'item-1', title : title, text : text } %}
+    {% endif %}
+ </div>

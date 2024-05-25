@@ -1,0 +1,23 @@
+<header class="header content">
+    <div class="header--inner site-width-wide">
+        {% block header %}    
+            <div class="--left">
+            <h1 class="hdr-logo" role="banner">
+                <a class="hdr-logo-link" href="{{ site.url }}" rel="home">
+                    {% include 'modules/_atoms/logo/logo.twig' %}
+                </a>
+            </h1>
+            <nav id="nav-main" class="nav-main" role="navigation">
+                {% include "menu.twig" with {'items': menu.get_items } %}
+            </nav><!-- #nav -->
+            </div>
+            <div class="--right">
+                {% include 'modules/_atoms/button/button.twig' with  { title : 'ENQUIRE', url : '/enquire/', target: '' } %}
+                <div class="menu-toggle">
+                {% include "modules/_atoms/navicon/navicon.twig" %}
+                </div>
+
+            </div>
+        {% endblock %}
+    </div>
+</header>
