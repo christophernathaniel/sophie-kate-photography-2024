@@ -28,4 +28,4 @@ jobs:
       
     - name: Deploy using SSH
       run: |
-        sshpass -p "${{ secrets.ftp_password }}" scp -o StrictHostKeyChecking=no -r $GITHUB_WORKSPACE/* root@159.223.246.109:/var/www/html/wp-content/themes//var/www/html/wp-content/themes/sophie-kate-photography-2024/
+        sshpass -p "${{ secrets.ftp_password }}" scp -o StrictHostKeyChecking=no -r $GITHUB_WORKSPACE/* root@159.223.246.109:/var/www/html/wp-content/themes/sophie-kate-photography-2024/
