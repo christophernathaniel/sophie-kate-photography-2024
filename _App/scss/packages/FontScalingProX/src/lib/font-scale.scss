@@ -1,0 +1,40 @@
+@use 'sass:math';
+
+$base-font-size: 16 !default; /* Base font size in pixels (1rem = 16px) */
+$vw-factor: 0.5vw  !default; /* The viewport width factor */
+
+// $font-sizes: (
+//   (min-font-size-px: 13, max-font-size-px: 16, font-scale: 12),
+//   (min-font-size-px: 16, max-font-size-px: 24, font-scale: 16),
+//   (min-font-size-px: 21, max-font-size-px: 46, font-scale: 40),
+//   (min-font-size-px: 24, max-font-size-px: 64, font-scale: 60)
+// ) !default;
+
+// Convert PX to VW
+@function px-to-vw($px, $viewport-width: 1920) {
+    @return (math.div($px, $viewport-width)) * 100 * 1vw;
+  }
+
+
+// Loop
+@each $size in $font-sizes {
+  $min-font-size-px: map-get($size, min-font-size-px);
+  $max-font-size-px: map-get($size, max-font-size-px);
+  $font-scale: map-get($size, font-scale);
+  
+  // Convert pixel values to rem
+  $min-rem: #{math.div($min-font-size-px, $base-font-size)}rem;
+  $max-rem: #{math.div($max-font-size-px, $base-font-size)}rem;
+
+  // create fs-- classname based on max font
+  .fs--#{$max-font-size-px} {
+    &, .--fs { 
+      font-size: clamp(
+      #{$min-rem},
+      calc(#{$min-rem} + #{px-to-vw($font-scale)}),
+      #{$max-rem}
+    );
+    }
+    
+  }
+}
