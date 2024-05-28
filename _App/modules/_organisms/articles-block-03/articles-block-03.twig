@@ -1,0 +1,37 @@
+<div class="articles-block-03">
+    <div class="container">
+        <div class="row --content">
+            <div class="col col-sm-4 col-8 offset-2">
+                <div class="--center">
+                    <div class="--subtitle fs--15">{{ fields.subtitle }}</div>
+                    <h2 class="--title fs--48 --h2">{{ fields.title }}</h2>
+                    <div class="--text">{{ fields.text }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col --end">
+                {% include 'modules/_atoms/button/button.twig' with  { title : fields.link.title, url : fields.link.url, target: fields.link.target } %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row --listing"">
+            {% for post_object in Post(fields.post_objects) %}
+                <a class="--link col {% if loop.first %}col-sm-4 col-md-6 col-lg-12 col-6{% else %}col-sm-4 col-md-3 col-lg-6 col-3{% endif %}" href="{{ post_object.link }}">
+                    <div class="--overlay">
+                        <h3 class="--h3 fs--36 tt--uppercase">{{ post_object.title }}</h3>
+                        <p>{{ post_object.excerpt.read_more(false) }}</p>
+                    </div>
+                    <img class="--image" src="{{ Image(post_object.thumbnail).src }}" alt="{{ post_object.thumbnail.alt }}" />
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+

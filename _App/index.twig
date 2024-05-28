@@ -1,11 +1,52 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-	
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	<div class="article-page-layout">
+		<div class="container">
+			<div class="row">
+				<div class="col col-8">
+					<div class="--grid">
+					{% for post in posts %}
+						<article class="--post">
+							<h2 class="--h2 fs--36"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+							<p class="--category">{{ post.category }}</p>
+							<p class="--excerpt">{{ post.excerpt }}</p>
+							<a class="--link" href="{{ post.link }}">Read Article</a>
+						</article>
+					{% endfor %}
+					</div>
+
+					<div class="pagination">
+<a href="{{ paginate.prev.link }}">Previous</a>
+<span>{{ page.title }}</span>
+<a href="{{ paginate.next.link }}">Next</a>
+</div>
+
+					{% if paginate.pages > 1 %}
+						<div class="pagination">
+							{% if paginate.prev %}
+								<a href="{{ paginate.prev.link }}">Previous</a>
+							{% endif %}
+							
+							{% for page in paginate.pages %}
+								{% if page.is_current %}
+									<span>{{ page.title }}</span>
+								{% else %}
+									<a href="{{ page.link }}">{{ page.title }}</a>
+								{% endif %}
+							{% endfor %}
+			
+							{% if paginate.next %}
+								<a href="{{ paginate.next.link }}">Next</a>
+							{% endif %}
+						</div>
+					{% endif %}
+					
+				</div>
+				<div class="col ol-4">
+					{% include "sidebar.twig" %}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

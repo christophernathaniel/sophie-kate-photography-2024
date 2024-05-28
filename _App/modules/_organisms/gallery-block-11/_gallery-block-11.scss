@@ -1,0 +1,115 @@
+
+.gallery-block-11 {
+    --item-width: 320px;
+    --inner-width: 1257px;
+    @include _('margin-top', 0.7,60);
+    @include _('margin-bottom', 0.7, 60);
+    .card {
+        padding: 0px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            height: 440px;
+        }
+    }
+
+    .card {
+
+        background-color: var(--color-secondary-alt);
+        border-radius: 40px;
+    }
+    
+    // Paddle Nav
+    .scroll-container {
+   
+        --viewport-content: 1500px;
+        
+    
+        overflow: scroll;
+        will-change: transform;
+        scroll-snap-type: x mandatory;
+        scroll-padding: calc(50% - var(--viewport-content) / 2);
+        scrollbar-width: none;
+        cursor: move; /* fallback if grab cursor is unsupported */
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+
+        &:active {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+    }
+    
+    .item-container {
+        padding: 0;
+        margin: 25px 0 0;
+        display: grid;
+        grid-gap: var(--grid-gap);
+        grid-auto-flow: column;
+        width: -moz-fit-content;
+        width: fit-content;
+       
+        padding-left: 40px;
+        @media (min-width: 1500px) {
+            padding-left: calc(50% - var(--viewport-content) / 2);
+        }
+        // padding-right: calc(50% - var(--viewport-content) / 2);
+       
+    
+       
+    
+        .item {
+            max-width: var(--item-width);
+            min-width: 250px;
+            max-width: calc(var(--inner-width, 100vw)* 0.875);
+            width: max-content;
+            display: flex;
+            // scroll-snap-align: start;
+            margin-right: 30px;
+            transition: 300ms linear all; 
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+            img {
+                display: block;
+            }
+        }
+    }
+    
+    .paddles {
+        display: flex;
+       justify-content: flex-end;
+        gap: 40px;
+        margin-top: 40px;
+        padding-left: 120px;
+        @include _('padding-bottom', 0.5, 40);
+    
+   
+        svg {
+            margin: 0px;
+            stroke: var(--color-primary);
+        }
+    
+        .paddlenav--left, .paddlenav--right {
+           width: 40px;
+           height: 40px;
+           border-radius: 40px;
+           background-color: var(--color-secondary-alt);
+             display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    
+  
+    
+        .paddlenav--right {
+          
+        }
+    }
+}
+
+

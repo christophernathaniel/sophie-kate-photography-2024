@@ -1,0 +1,56 @@
+.large-package-block-09 {
+
+    @include _('padding-top', 0.7, 120);
+    @include _('padding-bottom', 0.7, 80);
+    
+    .--subtitle {
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--title {
+        max-width: 700px;
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--text {
+        max-width: 600px;
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--signature {
+        svg {
+            max-width: 100%;
+            fill: var(--color-primary);
+        }
+    }
+    
+
+    .--center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .--inner {
+        @include _('padding-bottom', 0.7, 40);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0 14px 20px;
+        margin: 0;
+
+        li {
+            margin: 4px 0;
+            &:before {
+                content: '•';
+                color: var(--color-primary);
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+        }
+    }
+}
+

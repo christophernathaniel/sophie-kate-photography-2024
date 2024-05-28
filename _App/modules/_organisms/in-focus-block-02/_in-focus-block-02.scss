@@ -1,0 +1,35 @@
+.in-focus-block-02 {
+    background-color: var(--color-4);
+    @include _('padding-top', 0.7, 120);
+    @include _('padding-bottom', 0.7, 60);
+    
+    .--subtitle {
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--title {
+        max-width: 700px;
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--text {
+        max-width: 600px;
+        @include _('margin-bottom', 0.7, 20);
+    }
+
+    .--signature {
+        svg {
+            max-width: 100%;
+            fill: var(--color-primary);
+        }
+    }
+    
+
+    .--center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+

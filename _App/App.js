@@ -1,4 +1,5 @@
 import './App.scss';
+import './Blocks.scss';
 
 import { DynamicPage } from 'swift-swap/src/PageFlow.js';
 import EventListenerManager from './js/libraries/EventListenerManager';
@@ -7,9 +8,13 @@ import Header from './modules/_molecules/header';
 import CookieGuardian from 'cookie-guardian/src/cookie-guardian.js';
 import ViewportObserver from './js/libraries/ViewportObserver';
 import wrapWordsInSpans from './js/libraries/wrapWordsInSpans';
+import Masonry from 'masonry-layout';
+require('fslightbox');
 
 const eventManagerListener = new EventListenerManager();
 const state = {}
+
+
 
 
 // document.querySelector('.theme-toggle').addEventListener('click', () => document.body.classList.toggle('dark-theme'));
@@ -22,7 +27,7 @@ let renderList = [() => {
 
     document.querySelectorAll('a').forEach(link => {
         eventManagerListener.add(link, 'click', (event) => {
-            if(!link.classList.contains('external_url')) {
+            if(link.getAttribute('target') !== '_blank') {
             event.preventDefault();
                 document.body.classList.add('page-transition');
 
@@ -40,6 +45,44 @@ let renderList = [() => {
 }];
 
 
+// Lightbox
+renderList = [...renderList, () => {
+    if(document.querySelector('.masonry-block-13') === null) return;
+
+    const lightbox = new FsLightbox();
+    document.querySelectorAll('.masonry-block-13 img').forEach((elem, index) => {
+        lightbox.props.sources.push(elem.getAttribute('src'));
+        console.error(lightbox.props.sources);
+   
+    });
+
+  
+
+
+    document.querySelectorAll('.masonry-block-13 img').forEach((elem, index) => {
+        elem.addEventListener('click', (event) => {
+            lightbox.open(index);
+        });
+    });
+}];
+
+// Masonry Layout
+renderList = [...renderList, () => {
+ // vanilla JS
+// init with element
+var grid = document.querySelector('.grid');
+    var msnry = new Masonry( grid, {
+    // options...
+        itemSelector: '.grid-item',
+        columnWidth: '.--block',
+        percentPosition: true
+   
+    });
+    
+
+}];
+
+
 renderList = [...renderList, () => {
     setTimeout(() => document.body.classList.remove('in-transition'), 100);
 }];
@@ -53,6 +96,63 @@ renderList = [...renderList, () => {
     const insideCallback = (elem) => elem.classList.add('in-viewport');
     const outsideCallback = (elem) => elem.classList.remove('in-viewport');
     new ViewportObserver('.vp--observer', {}, insideCallback, outsideCallback);
+}];
+
+
+// Paddle Navigation
+renderList = [...renderList, () => {
+    document.querySelectorAll('.paddle-container').forEach(paddleContainer => {
+        let scrollContainer = paddleContainer.querySelector('.scroll-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        // Scroll right button
+        paddleContainer.querySelector('.paddlenav--right').addEventListener('click', () => {
+            const currentScroll = scrollContainer.scrollLeft;
+            const newScroll = currentScroll + (window.innerWidth / 3) + 8;
+            scrollContainer.scrollTo({ left: newScroll, behavior: 'smooth' });
+        });
+    
+        // Scroll left button
+        paddleContainer.querySelector('.paddlenav--left').addEventListener('click', () => {
+            const currentScroll = scrollContainer.scrollLeft;
+            const newScroll = currentScroll - (window.innerWidth / 3) + 8;
+            scrollContainer.scrollTo({ left: newScroll, behavior: 'smooth' });
+        });
+
+          // Prevent image dragging
+            scrollContainer.querySelectorAll('img').forEach(img => {
+                img.setAttribute('draggable', 'false');
+            });
+            
+        // Mouse events for dragging
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+    
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+    
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+    
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust the multiplier to control the scroll speed
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    });
+
 }];
 
 

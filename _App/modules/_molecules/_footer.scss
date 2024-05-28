@@ -1,6 +1,25 @@
 footer#footer {
+    background-color: var(--color-4);
     .--center {
-        padding-top: 100px;
         text-align: center;
     }  
+
+    .--top {
+        padding-top: 200px;
+    }
+
+    .--bottom {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .--svg {
+        margin-bottom: 40px;
+        
+        svg {
+            max-width: 100%;
+            fill: var(--color-primary);
+            stroke: var(--color-primary);
+        }
+    }
 }

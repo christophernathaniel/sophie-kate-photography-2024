@@ -1,0 +1,29 @@
+<div class="large-content-block-08 {% if fields.flip %}flip{% endif %}">
+    <div class="container">
+        <div class="row --justify">
+            <div class="col col-sm-4 col-md-6 col-lg-6  col-4 --left">
+                <div class="--subtitle fs--15">{{ fields.subtitle }}</div>
+                <h2 class="--title fs--96 --h1">{{ fields.title }}</h2>
+                <div class="--text">{{ fields.text }}</div>
+                {% include 'modules/_atoms/button/button.twig' with  { title : fields.link.title, url : fields.link.url, target: fields.link.target } %}
+            
+                <div class="--testimonial --center">
+                    {% include 'modules/_atoms/quote-left.twig'  %}
+                        
+                    <span class="--subtitle fs--14">TESTIMONIAL</span>
+                    <h3 class="--quote-title --h3 fs--48 tt--uppercase">{{ fields.testimonial_title }}</h3>
+                    <div class="--quote-text">{{ fields.testimonial_content }}</div>
+                    {% include 'modules/_atoms/quote-right.twig'  %}
+                </div>
+            </div>
+            <div class="col  col-sm-4 col-md-6 col-lg-5 col-7 --right">
+                <img class="--image" src="{{ Image(fields.image).src }}" alt="{{ fields.image.alt }}" />
+                <div class="--square">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

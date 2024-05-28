@@ -1,0 +1,35 @@
+<div class="large-package-block-09 {{ fields.background_colour }}">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-4 col-8 offset-2">
+                <div class="--center">
+                    <div class="--subtitle fs--15">{{ fields.subtitle }}</div>
+                    <h2 class="--title fs--48 --h2">{{ fields.title }}</h2>
+                    <div class="--text">{{ fields.text }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for package in fields.packages %}
+                <div class="col col-sm-4 col-6">
+                    <div class="--inner">
+                        <h3 class="--package-title fs--36 --h3">{{ package.package_title }}</h3>
+                        <h4 class="--subtitle fs--15">{{ package.package_name }}</h4>
+                        <ul class="--features">
+                            {% for feature in package.features %}
+                                <li class="--feature">{{ feature.feature }}</li>
+                            {% endfor %}
+                        </ul>
+                
+                        {% include 'modules/_atoms/button/button.twig' with  { title : package.link.title, url : package.link.url ~ '?package=' ~package.package_id, target: package.link.target } %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,6 @@
+.page-title-block-07 {
+    .--top {
+        @include _('padding-top', 0.7, 120);
+        @include _('padding-bottom', 0.7, 120);
+    }
+}

@@ -1,0 +1,16 @@
+<div class="link-block-06">
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-4 col-8 offset-2">
+                <div class="--center">
+                    <div class="--subtitle fs--15">{{ fields.subtitle }}</div>
+                    <h2 class="--title fs--48 --h2">{{ fields.title }}</h2>
+                    <div class="--text">{{ fields.text }}</div>
+                    {% include 'modules/_atoms/button/button.twig' with  { title : fields.link.title, url : fields.link.url, target: fields.link.target } %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

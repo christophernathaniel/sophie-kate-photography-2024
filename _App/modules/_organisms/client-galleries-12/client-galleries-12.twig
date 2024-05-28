@@ -1,0 +1,28 @@
+<div class="client-galleries-12">
+    {# Get the current page #}
+    {% set child_pages = Post(post).children %}
+
+        {# Check if there are any child pages #}
+        <div class="container">
+        {% if child_pages %}
+            <ul class="row">
+                {# Loop through the child pages #}
+                {% for child_page in child_pages %}
+                    <li class="col col-sm-4 col-md-3 col-lg-6 col-4">
+                        <a class="--link" href="{{ child_page.link }}">
+                            <img class="--image" src="{{ child_page.thumbnail }}" />
+                            <div class="image-overlay">
+                                <h2 class="--h2 fs--36">{{ child_page.title }}</h2>
+                                <p class="--excerpt">{{ child_page.excerpt.read_more(null) }}</p>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No child pages found.</p>
+        {% endif %}
+        </div>
+</div>
+
+

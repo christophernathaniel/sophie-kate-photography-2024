@@ -1,0 +1,26 @@
+
+.masonry-block-13 {
+    @include _('padding-top', 0.7, 60);
+    @include _('padding-bottom', 0.7, 120);
+    .grid-item {
+        width: 25%;
+    }
+
+    .grid-item:nth-child(4n+3) {
+        width: 50%;
+    }
+
+    .--block {
+        aspect-ratio: 1/1;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .--image {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        width: 100%;
+        display: block;
+        
+    }
+}

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Playfair+Display&display=swap');
+
+$font-sizes: (
+    (min-font-size-px: 11, max-font-size-px: 14, font-scale: 3), // 13 // .fs--13
+    (min-font-size-px: 11, max-font-size-px: 15, font-scale: 3), // 14 // .fs--14
+    (min-font-size-px: 14, max-font-size-px: 16, font-scale: 5), // 16 // .fs--16
+    (min-font-size-px: 26, max-font-size-px: 36, font-scale: 10), // 16 // .fs--36
+    (min-font-size-px: 0, max-font-size-px: 70, font-scale: 70), // 20 // .fs--70
+    (min-font-size-px: 36, max-font-size-px: 48, font-scale: 48), // 26 // .fs--48
+    (min-font-size-px: 44, max-font-size-px: 96, font-scale: 44), // 120 // .fs--120
+);
+
+body {
+    margin: 0;
+
+    .content-wrapper {
+        padding-top: 100px;
+    }
+}
+
+.container {
+    padding: 0 20px;
+
+    @media (min-width: 567px) {
+        padding: 0 40px;
+    }
+
+    @media (min-width: 768px) {
+        padding: 0 60px;
+    }
+
+  
+}
+
+
+
+/* Base Variables */
+@import "scss/base/responsiveunit";
+
+@import "scss/global/fonts";
+ 
+
+
+@import "scss/packages/CSSColumnPro/src/CSSGridPro.scss";
+@import "scss/packages/FontScalingPro/src/FontScalingPro.scss";
+
+
+
+/* Global Variables */
+@import "scss/global/variables";
+@import "scss/global/loading";
+
+/* Atoms */
+@import "modules/_atoms/button/_button";
+@import "modules/_atoms/arrowicon/_arrowicon";
+@import "modules/_atoms/logo/_logo";
+@import "modules/_atoms/signature/_signature";
+
+/* Molecules */
+@import "modules/_molecules/image-tile/image-tile";
+@import "modules/_molecules/skill/skill";
+@import "modules/_molecules/_header";
+@import "modules/_molecules/_footer";
+
+
+/* Organisms */
+@import "modules/_organisms/organism-00/organism-00";
+@import "modules/_organisms/header-block-01/header-block-01";
+@import "modules/_organisms/in-focus-block-02/in-focus-block-02";

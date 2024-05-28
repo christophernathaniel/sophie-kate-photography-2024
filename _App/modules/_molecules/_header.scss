@@ -1,10 +1,9 @@
 .header {
     position: fixed;
     z-index: 10;
-    background-color: rgba(255,255,255,0.7);
+    background-color: var(--color-white);
     backdrop-filter: blur(100px);
     width: 100%;
-
    
 
     .header--inner {
@@ -62,9 +61,56 @@
    @media (max-width: 992px) {
         .nav-main {
             position: fixed;
+            top: 0;
+            bottom: 0;
             right: 0px;
             width: 300px;
             right: -300px;
+            transition: 100ms linear right;
+            background-color: var(--color-white);
+            z-index: 20;
+            height: 100vh;
+        }
+
+        &:after {
+            z-index: 11;
+            top: 0;
+            bottom: 0;
+            width: 100vw;
+            right: -100vw;
+            background-color: var(--color-3);
+            content: '';
+            position: fixed;
+            display: block;
+            height: 100vh;
+            opacity: 0.7;
+            transition: 100ms linear right;
+        }
+
+        &.menu-active {
+            .nav-main {
+                right: 0px;
+            }
+
+            &:after {
+               right: 0;
+            }
+        }
+
+        .nav-main {
+            ul {
+                padding: 0 40px;
+                list-style: none;
+
+                li {
+                    border-bottom: 1px solid var(--color-3);
+                }
+
+                a {
+                    padding: 10px 0;
+                    display: block;
+                }
+            }
         }
    }
 

@@ -1,7 +1,14 @@
 .--button {
     display: flex;
     align-items: center;
-    
+    margin-right: 30px;
+
+    &:hover {
+        svg {
+            stroke: var(--color-secondary);
+        
+        }
+    }
 
     .arrow-icon {
         margin-top: -4px;

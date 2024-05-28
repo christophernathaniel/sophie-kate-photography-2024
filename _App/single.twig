@@ -1,36 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="article-wrapper content-wrapper content content-width">
-		<div class="related-posts">
-			<div class="f--md related-title">Related Posts</div>
-			{# Check if there are recent posts #}
-			{% if recent_posts %}
-				<ul>
-					{# Loop through each recent post #}
-					{% for post in recent_posts %}
-						<li>
-							<a href="{{ post.link }}">{{ post.title }}</a>
-						</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		</div>
+	<div class="article-wrapper content-wrapper blog-wrapper ">
+	
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 			
 			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
+				<h1 class="--h1 fs--96">{{ post.title }}</h1>
 				{# <a href="{{ post.link }}">{{ _e('edit') }}</a> #}
 				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>|</span> <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+					<span>By</span> {{ post.author.name }} <span>|</span> <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
 				</p>
-				<div class="hashcontainer">
-                	<ul class="no-style hashgrid">
-						{% for item in post.categories %}
-							<li><a class="hash" href="{{ item.href }}">{{ include('modules/_atoms/hashicon.twig') }} {{ item.name }}</a></li>
-						{% endfor %}
-					</ul>
-				</div>
+				
 			
 
 				<div class="article-body">

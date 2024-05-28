@@ -1,0 +1,39 @@
+<div class="gallery-block-11">
+    <div class="paddle-container">
+        <div class="page-intro--feature-repeater scroll-container">
+            <div class="item-container">
+                {% for repeater in fields.gallery %}
+                    <div class="item">
+                        <div class="card c--black">
+                             <img src=" {{ Image(repeater).src }}" alt=" {{ Image(repeater).alt }}" />
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="paddlenav container">
+            <div class="row">
+                <div class="col paddles">
+                    <div class="paddlenav--left">
+                        <svg width="44" height="28" viewBox="0 0 44 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43.875 13.79L1 13.79" stroke-width="3"/>
+                            <path d="M1.18884 13.7469C1.67598 13.6797 14.4724 14.5602 15.9997 26.2224"  stroke-width="3"/>
+                            <path d="M1.18862 13.775C1.67576 13.8422 13.7225 12.961 15.2497 1.29887"  stroke-width="3"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="paddlenav--right">
+                        <svg width="44" height="28" viewBox="0 0 44 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.384766 14.1045L43.2598 14.1045"  stroke-width="3"/>
+                            <path d="M43.0709 14.1481C42.5838 14.2153 29.7874 13.3348 28.2601 1.67266" stroke-width="3"/>
+                            <path d="M43.0712 14.1206C42.584 14.0533 30.5373 14.9345 29.01 26.5966" stroke-width="3"/>
+                        </svg>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,1 +1,15 @@
-Sidebar in Timber. Add HTML to your hearts content.
+<div class="--sidebar">
+    <h2 class="--h2 fs--36 tt--uppercase">Recent Posts</h2>
+    <ul>
+        {% for recent_post in recent_posts %}
+            <li><a href="{{ recent_post.link }}">{{ recent_post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="--h2 fs--36 tt--uppercase">Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{{ category.link }}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

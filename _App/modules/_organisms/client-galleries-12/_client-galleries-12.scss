@@ -1,0 +1,44 @@
+.client-galleries-12 {
+    @include _('padding-top', 0.7, 60);
+    @include _('padding-bottom', 0.7, 120);
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .--link {
+        position: relative;
+        background-color: var(--color-black);
+    }
+
+    .--excerpt {
+        @media (min-width: 567px) and (max-width: 690px) {
+            display: none;
+        }
+    }
+
+    .--image {
+        width: 100%;
+        aspect-ratio: 4/4;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+       
+    }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        min-height: 50%;
+        box-sizing: border-box;
+        color: var(--color-white-always);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+
+        z-index: 2;
+        transition: opacity 0.3s;
+    }
+}
