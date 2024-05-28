@@ -1,6 +1,6 @@
 import { PageFlow } from 'swift-swap/src/PageFlow.js';
 import EventListenerManager from '../../js/libraries/EventListenerManager';
-import debounce from '../../js/libraries/deBounce';
+import debounce from '../../js/libraries/debounce';
 const headerEventListener = new EventListenerManager();
 
 
