@@ -10,7 +10,7 @@
                 <div class="--testimonial --center">
                     {% include 'modules/_atoms/quote-left.twig'  %}
                         
-                    <span class="--subtitle fs--14">TESTIMONIAL</span>
+                    <span class="--subtitle fs--14">{{ fields.testimonial_subtitle }}</span>
                     <h3 class="--quote-title --h3 fs--48 tt--uppercase">{{ fields.testimonial_title }}</h3>
                     <div class="--quote-text">{{ fields.testimonial_content }}</div>
                     {% include 'modules/_atoms/quote-right.twig'  %}

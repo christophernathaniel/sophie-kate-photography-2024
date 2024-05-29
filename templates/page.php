@@ -29,5 +29,6 @@ $context['post'] = $timber_post;
 // Check if the post is password protected
 $context['password_protected'] = post_password_required($timber_post->ID);
 
+
 // Render the appropriate Twig template
 Timber::render(array('page-' . $timber_post->post_name . '.twig', 'page.twig'), $context);

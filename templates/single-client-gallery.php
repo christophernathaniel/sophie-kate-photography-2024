@@ -30,4 +30,8 @@ $context['post'] = $timber_post;
 $context['password_protected'] = post_password_required($timber_post->ID);
 
 // Render the appropriate Twig template
-Timber::render(array('single-client-gallery.twig', 'page.twig'), $context);
+if (post_password_required($timber_post->ID)) {
+	Timber::render('single-password.twig', $context);
+} else {
+    Timber::render(array('single-client-gallery.twig', 'page.twig'), $context);
+}
